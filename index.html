@@ -3,76 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram Web App</title>
+    <title>Web App - Олимпиады и Мероприятия</title>
     <style>
         body {
-            font-family: Times New Roman, sans-serif;
-            text-align: center;
-            padding: 20px;
+            font-family: Arial, sans-serif;
             background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
         }
-        h1 {
-            color: #333;
+        .tabs {
+            display: flex;
+            justify-content: center;
+            background-color: #007bff;
+            padding: 10px;
         }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
+        .tab-button {
             background-color: #007bff;
             color: white;
             border: none;
-            border-radius: 5px;
+            padding: 10px 20px;
             cursor: pointer;
+            font-size: 16px;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
-        button:hover {
+        .tab-button.active {
             background-color: #0056b3;
         }
-        #userData {
-            margin-top: 20px;
-            font-size: 18px;
-            color: #555;
+        .tab-button:hover {
+            background-color: #0056b3;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .tab-content.active {
+            display: block;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            color: #666;
         }
     </style>
 </head>
 <body>
-    <h1>Добро пожаловать в Web App!</h1>
-    <button onclick="sendData()">Отправить данные в бота</button>
-    <div id="userData"></div>
+    <div class="tabs">
+        <button class="tab-button active" onclick="openTab(event, 'olympiads')">Олимпиады</button>
+        <button class="tab-button" onclick="openTab(event, 'events')">Мероприятия</button>
+    </div>
+
+    <div id="olympiads" class="tab-content active">
+        <h2>Олимпиады</h2>
+        <p>Здесь вы можете найти информацию о предстоящих олимпиадах.</p>
+        <ul>
+            <li>Олимпиада по математике - 15 ноября 2023</li>
+            <li>Олимпиада по физике - 20 ноября 2023</li>
+            <li>Олимпиада по информатике - 25 ноября 2023</li>
+        </ul>
+    </div>
+
+    <div id="events" class="tab-content">
+        <h2>Мероприятия</h2>
+        <p>Здесь вы можете найти информацию о предстоящих мероприятиях.</p>
+        <ul>
+            <li>Научная конференция - 10 декабря 2023</li>
+            <li>Хакатон - 15 декабря 2023</li>
+            <li>Культурный фестиваль - 20 декабря 2023</li>
+        </ul>
+    </div>
 
     <script>
-        // Проверяем, открыто ли приложение в Telegram
-        if (window.Telegram && Telegram.WebApp) {
-            const user = Telegram.WebApp.initDataUnsafe.user; // Данные пользователя
+        function openTab(event, tabName) {
+            // Скрыть все вкладки
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(tab => tab.classList.remove('active'));
 
-            // Отображаем данные пользователя
-            if (user) {
-                document.getElementById('userData').innerHTML = `
-                    <p>Привет, <strong>${user.first_name}</strong>!</p>
-                    <p>Ваш ID: <strong>${user.id}</strong></p>
-                    <p>Язык: <strong>${user.language_code}</strong></p>
-                `;
-            } else {
-                document.getElementById('userData').innerHTML = "<p>Данные пользователя недоступны.</p>";
-            }
+            // Убрать активный класс у всех кнопок
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => button.classList.remove('active'));
 
-            // Показываем основную кнопку Telegram
-            Telegram.WebApp.MainButton
-                .setText("Закрыть Web App")
-                .show()
-                .onClick(() => {
-                    Telegram.WebApp.close(); // Закрыть Web App
-                });
-        } else {
-            document.getElementById('userData').innerHTML = "<p>Это приложение работает только в Telegram.</p>";
+            // Показать текущую вкладку
+            document.getElementById(tabName).classList.add('active');
+
+            // Добавить активный класс к текущей кнопке
+            event.currentTarget.classList.add('active');
         }
-
-        // Функция для отправки данных в бота
-        function sendData() {
-            if (Telegram.WebApp) {
-                const data = "Данные отправлены из Web App!";
-                Telegram.WebApp.sendData(data); // Отправляем данные в бота
-                alert("Данные отправлены!");
-            } else {
-                alert("Web App API недоступен.");
+    </script>
+</body>
+</html>
             }
         }
     </script>
