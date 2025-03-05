@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web App - Олимпиады и Мероприятия</title>
+    <title>Web App - Олимпиады, Мероприятия и Опросы</title>
     <style>
         body {
             font-family: Times New Roman, sans-serif;
@@ -14,11 +14,11 @@
         .tabs {
             display: flex;
             justify-content: center;
-            background-color: #007bff;
+            background-color: #28a745; /* Зеленый цвет */
             padding: 10px;
         }
         .tab-button {
-            background-color: #007bff;
+            background-color: #28a745; /* Зеленый цвет */
             color: white;
             border: none;
             padding: 10px 20px;
@@ -29,10 +29,10 @@
             transition: background-color 0.3s;
         }
         .tab-button.active {
-            background-color: #0056b3;
+            background-color: #218838; /* Темно-зеленый цвет */
         }
         .tab-button:hover {
-            background-color: #0056b3;
+            background-color: #218838; /* Темно-зеленый цвет */
         }
         .tab-content {
             display: none;
@@ -57,6 +57,7 @@
     <div class="tabs">
         <button class="tab-button active" onclick="openTab(event, 'olympiads')">Олимпиады</button>
         <button class="tab-button" onclick="openTab(event, 'events')">Мероприятия</button>
+        <button class="tab-button" onclick="openTab(event, 'polls')">Опросы</button> <!-- Новая вкладка -->
     </div>
 
     <div id="olympiads" class="tab-content active">
@@ -79,6 +80,16 @@
         </ul>
     </div>
 
+    <div id="polls" class="tab-content">
+        <h2>Опросы</h2>
+        <p>Примите участие в наших опросах.</p>
+        <ul>
+            <li>Как вы оцениваете качество олимпиад? <button onclick="alert('Спасибо за ваш ответ!')">Пройти опрос</button></li>
+            <li>Какие мероприятия вам интересны? <button onclick="alert('Спасибо за ваш ответ!')">Пройти опрос</button></li>
+            <li>Ваши предложения по улучшению? <button onclick="alert('Спасибо за ваш ответ!')">Пройти опрос</button></li>
+        </ul>
+    </div>
+
     <script>
         function openTab(event, tabName) {
             // Скрыть все вкладки
@@ -94,11 +105,6 @@
 
             // Добавить активный класс к текущей кнопке
             event.currentTarget.classList.add('active');
-        }
-    </script>
-</body>
-</html>
-            }
         }
     </script>
 </body>
