@@ -64,6 +64,9 @@
         <h2>Олимпиады</h2>
         <p>Здесь вы можете найти информацию о предстоящих олимпиадах.</p>
         <ul>
+            <li>Олимпиада школьников Санкт-Петербургского государственного университета - 1 ноября 2024</li>
+            <li>Отраслевая физико-математическая олимпиада школьников «Росатом» - 20 ноября 2023</li>
+            <li>Олимпиада по математике (Заключительный Этап) - 25 апреля 2025</li>
             <!-- Добавленные олимпиады -->
             <li><a href="https://systematika.org/olimpiada/kenguru/" target="_blank">Конкурс Кенгуру 2025 онлайн</a></li>
             <li><a href="https://systematika.org/olimpiada/biology" target="_blank">Олимпиада по биологии 2025</a></li>
@@ -92,6 +95,7 @@
     </div>
 
     <script>
+        // Функция для переключения вкладок
         function openTab(event, tabName) {
             // Скрыть все вкладки
             const tabContents = document.querySelectorAll('.tab-content');
@@ -102,11 +106,21 @@
             tabButtons.forEach(button => button.classList.remove('active'));
 
             // Показать текущую вкладку
-            document.getElementById(tabName).classList.add('active'));
+            document.getElementById(tabName).classList.add('active');
 
             // Добавить активный класс к текущей кнопке
             event.currentTarget.classList.add('active');
         }
+
+        // Функция для растяжения мини-приложения на весь экран
+        function expandWebApp() {
+            if (window.Telegram && Telegram.WebApp) {
+                Telegram.WebApp.expand(); // Растягиваем на весь экран
+            }
+        }
+
+        // Вызываем функцию растяжения при загрузке страницы
+        window.addEventListener('load', expandWebApp);
     </script>
 </body>
 </html>
