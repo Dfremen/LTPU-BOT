@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web App - Олимпиады, Мероприятия, Опросы и Конференции</title>
+    <title>Web App - Олимпиады, Мероприятия и Конференции</title>
     <style>
         body {
             font-family: Times New Roman, sans-serif;
@@ -51,37 +51,13 @@
         p {
             color: #666;
         }
-        .poll-question {
-            margin-bottom: 20px;
-        }
-        .poll-question label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-        .poll-question input[type="radio"] {
-            margin-right: 10px;
-        }
-        .poll-question button {
-            background-color: #28a745;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        .poll-question button:hover {
-            background-color: #218838;
-        }
     </style>
 </head>
 <body>
     <div class="tabs">
         <button class="tab-button active" onclick="openTab(event, 'olympiads')">Олимпиады</button>
         <button class="tab-button" onclick="openTab(event, 'events')">Мероприятия</button>
-        <button class="tab-button" onclick="openTab(event, 'polls')">Опросы</button>
-        <button class="tab-button" onclick="openTab(event, 'conferences')">Конференции</button> <!-- Новая вкладка -->
+        <button class="tab-button" onclick="openTab(event, 'conferences')">Конференции</button>
     </div>
 
     <div id="olympiads" class="tab-content active">
@@ -102,30 +78,6 @@
             <li>Научная конференция - 4 апреля 2025</li>
             <li>ВПР по математике - 20 апреля 2025</li>
         </ul>
-    </div>
-
-    <div id="polls" class="tab-content">
-        <h2>Опросы</h2>
-        <p>Примите участие в наших опросах.</p>
-        <div class="poll-question">
-            <label>1. Как вы оцениваете качество олимпиад?</label>
-            <label><input type="radio" name="q1" value="5"> Отлично</label>
-            <label><input type="radio" name="q1" value="4"> Хорошо</label>
-            <label><input type="radio" name="q1" value="3"> Удовлетворительно</label>
-            <label><input type="radio" name="q1" value="2"> Плохо</label>
-            <label><input type="radio" name="q1" value="1"> Очень плохо</label>
-        </div>
-        <div class="poll-question">
-            <label>2. Какие мероприятия вам интересны?</label>
-            <label><input type="radio" name="q2" value="olympiads"> Олимпиады</label>
-            <label><input type="radio" name="q2" value="conferences"> Конференции</label>
-            <label><input type="radio" name="q2" value="workshops"> Мастер-классы</label>
-        </div>
-        <div class="poll-question">
-            <label>3. Ваши предложения по улучшению?</label>
-            <textarea rows="4" placeholder="Напишите ваши предложения..."></textarea>
-        </div>
-        <button onclick="submitPoll()">Отправить опрос</button>
     </div>
 
     <div id="conferences" class="tab-content">
@@ -153,20 +105,6 @@
 
             // Добавить активный класс к текущей кнопке
             event.currentTarget.classList.add('active');
-        }
-
-        function submitPoll() {
-            const q1 = document.querySelector('input[name="q1"]:checked');
-            const q2 = document.querySelector('input[name="q2"]:checked');
-            const q3 = document.querySelector('textarea').value;
-
-            if (!q1 || !q2 || !q3) {
-                alert('Пожалуйста, ответьте на все вопросы!');
-                return;
-            }
-
-            alert('Спасибо за ваши ответы! Ваш опрос отправлен.');
-            // Здесь можно добавить логику для отправки данных на сервер
         }
     </script>
 </body>
