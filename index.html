@@ -1,28 +1,116 @@
-body {
-    font-family: 'Times New Roman', sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
-.tabs {
-    width: 100%;
-    max-width: 800px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web App - Олимпиады, Мероприятия и Конференции</title>
     <style>
-        /* Обновленные стили ниже */
+        body {
+            font-family: 'Times New Roman', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .tabs {
+            width: 100%;
+            max-width: 800px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .tab-buttons {
+            display: flex;
+            position: relative;
+            background-color: #28a745; /* Зеленый цвет */
+            padding: 10px;
+        }
+
+        .tab-button {
+            flex: 1;
+            background-color: transparent;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .tab-button.active {
+            background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачный белый */
+        }
+
+        .tab-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .indicator {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background-color: #ffeb3b; /* Желтый цвет */
+            transition: all 0.3s ease;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            color: #333;
+            margin-top: 0;
+        }
+
+        p {
+            color: #666;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 10px 0;
+        }
+
+        ul li a {
+            color: #28a745;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        ul li a:hover {
+            color: #218838;
+        }
     </style>
 </head>
 <body>
@@ -31,40 +119,40 @@ body {
             <button class="tab-button active" onclick="openTab(event, 'olympiads')">Олимпиады</button>
             <button class="tab-button" onclick="openTab(event, 'events')">Мероприятия</button>
             <button class="tab-button" onclick="openTab(event, 'conferences')">Конференции</button>
-            <div class="indicator"></div> <!-- Добавили индикатор -->
+            <div class="indicator"></div> <!-- Индикатор -->
         </div>
-    </div>
 
-    <div id="olympiads" class="tab-content active">
-        <h2>Олимпиады</h2>
-        <p>Здесь вы можете найти информацию о предстоящих олимпиадах.</p>
-        <ul>
-            <li><a href="https://systematika.org/olimpiada/kenguru/" target="_blank">Конкурс Кенгуру 2025 онлайн</a></li>
-            <li><a href="https://systematika.org/olimpiada/biology" target="_blank">Олимпиада по биологии 2025</a></li>
-            <li><a href="https://systematika.org/olimpiada/math/" target="_blank">Олимпиада по математике 2025</a></li>
-        </ul>
-    </div>
+        <div id="olympiads" class="tab-content active">
+            <h2>Олимпиады</h2>
+            <p>Здесь вы можете найти информацию о предстоящих олимпиадах.</p>
+            <ul>
+                <li><a href="https://systematika.org/olimpiada/kenguru/" target="_blank">Конкурс Кенгуру 2025 онлайн</a></li>
+                <li><a href="https://systematika.org/olimpiada/biology" target="_blank">Олимпиада по биологии 2025</a></li>
+                <li><a href="https://systematika.org/olimpiada/math/" target="_blank">Олимпиада по математике 2025</a></li>
+            </ul>
+        </div>
 
-    <div id="events" class="tab-content">
-        <h2>Мероприятия</h2>
-        <p>Здесь вы можете найти информацию о предстоящих мероприятиях.</p>
-        <ul>
-            <li>Фотосессия - 25 марта 2025</li>
-            <li>Подача заявок на конференцию ТПУ - 15 марта 2025</li>
-            <li>Научная конференция - 3-4 апреля 2025</li>
-            <li>День космонавтики - 12 апреля 2025</li>
-            <li>ВПР по математике - 20 апреля 2025</li>
-        </ul>
-    </div>
+        <div id="events" class="tab-content">
+            <h2>Мероприятия</h2>
+            <p>Здесь вы можете найти информацию о предстоящих мероприятиях.</p>
+            <ul>
+                <li>Фотосессия - 25 марта 2025</li>
+                <li>Подача заявок на конференцию ТПУ - 15 марта 2025</li>
+                <li>Научная конференция - 3-4 апреля 2025</li>
+                <li>День космонавтики - 12 апреля 2025</li>
+                <li>ВПР по математике - 20 апреля 2025</li>
+            </ul>
+        </div>
 
-    <div id="conferences" class="tab-content">
-        <h2>Конференции</h2>
-        <p>Здесь вы можете найти информацию о предстоящих конференциях.</p>
-        <ul>
-            <li>Международная конференция по искусственному интеллекту - 10 декабря 2024</li>
-            <li>Конференция по современным технологиям в образовании - 15 января 2025</li>
-            <li>Научная конференция по экологии - 5 марта 2025</li>
-        </ul>
+        <div id="conferences" class="tab-content">
+            <h2>Конференции</h2>
+            <p>Здесь вы можете найти информацию о предстоящих конференциях.</p>
+            <ul>
+                <li>Международная конференция по искусственному интеллекту - 10 декабря 2024</li>
+                <li>Конференция по современным технологиям в образовании - 15 января 2025</li>
+                <li>Научная конференция по экологии - 5 марта 2025</li>
+            </ul>
+        </div>
     </div>
 
     <script>
@@ -112,91 +200,3 @@ body {
     </script>
 </body>
 </html>
-}
-
-.tab-buttons {
-    display: flex;
-    position: relative;
-    background-color: #28a745; /* Зеленый цвет */
-    padding: 10px;
-}
-
-.tab-button {
-    flex: 1;
-    background-color: transparent;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-    margin: 0 5px;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.tab-button.active {
-    background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачный белый */
-}
-
-.tab-button:hover {
-    transform: translateY(-2px);
-}
-
-.indicator {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 3px;
-    background-color: #ffeb3b; /* Желтый цвет */
-    transition: all 0.3s ease;
-}
-
-.tab-content {
-    display: none;
-    padding: 20px;
-    background-color: white;
-    animation: fadeIn 0.5s ease;
-}
-
-.tab-content.active {
-    display: block;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-h2 {
-    color: #333;
-    margin-top: 0;
-}
-
-p {
-    color: #666;
-}
-
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-ul li {
-    margin: 10px 0;
-}
-
-ul li a {
-    color: #28a745;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-ul li a:hover {
-    color: #218838;
-}
