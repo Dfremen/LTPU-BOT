@@ -34,6 +34,7 @@
             padding: 10px;
             cursor: grab; /* Курсор для перемещения */
             user-select: none; /* Запрет выделения текста */
+            overflow-x: auto; /* Добавляем горизонтальную прокрутку, если кнопки не помещаются */
         }
 
         .tab-buttons:active {
@@ -45,12 +46,14 @@
             background-color: transparent;
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 10px 20px; /* Увеличиваем отступы */
             cursor: pointer;
             font-size: 16px;
             margin: 0 5px;
             border-radius: 5px;
             transition: background-color 0.3s, transform 0.2s;
+            white-space: nowrap; /* Запрещаем перенос текста */
+            min-width: 100px; /* Минимальная ширина кнопки */
         }
 
         .tab-button.active {
