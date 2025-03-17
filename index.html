@@ -245,23 +245,22 @@
             }
         }
 
-        // Функция для перемещения менюшки
+        // Функция для перемещения менюшки только вправо и влево
         const draggableHeader = document.getElementById('draggable-header');
         let isDragging = false;
-        let offsetX, offsetY;
+        let offsetX;
 
         draggableHeader.addEventListener('mousedown', (e) => {
             isDragging = true;
             offsetX = e.clientX - draggableHeader.getBoundingClientRect().left;
-            offsetY = e.clientY - draggableHeader.getBoundingClientRect().top;
             draggableHeader.style.cursor = 'grabbing';
         });
 
         window.addEventListener('mousemove', (e) => {
             if (isDragging) {
-                draggableHeader.style.position = 'absolute';
-                draggableHeader.style.left = `${e.clientX - offsetX}px`;
-                draggableHeader.style.top = `${e.clientY - offsetY}px`;
+                // Ограничиваем перемещение только по оси X
+                const newLeft = e.clientX - offsetX;
+                draggableHeader.style.left = `${newLeft}px`;
             }
         });
 
