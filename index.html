@@ -15,7 +15,103 @@ body {
     background-color: white;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
+    overflow: hidden;<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web App - Олимпиады, Мероприятия и Конференции</title>
+    <style>
+        /* Обновленные стили ниже */
+    </style>
+</head>
+<body>
+    <div class="tabs">
+        <div class="tab-buttons">
+            <button class="tab-button active" onclick="openTab(event, 'olympiads')">Олимпиады</button>
+            <button class="tab-button" onclick="openTab(event, 'events')">Мероприятия</button>
+            <button class="tab-button" onclick="openTab(event, 'conferences')">Конференции</button>
+            <div class="indicator"></div> <!-- Добавили индикатор -->
+        </div>
+    </div>
+
+    <div id="olympiads" class="tab-content active">
+        <h2>Олимпиады</h2>
+        <p>Здесь вы можете найти информацию о предстоящих олимпиадах.</p>
+        <ul>
+            <li><a href="https://systematika.org/olimpiada/kenguru/" target="_blank">Конкурс Кенгуру 2025 онлайн</a></li>
+            <li><a href="https://systematika.org/olimpiada/biology" target="_blank">Олимпиада по биологии 2025</a></li>
+            <li><a href="https://systematika.org/olimpiada/math/" target="_blank">Олимпиада по математике 2025</a></li>
+        </ul>
+    </div>
+
+    <div id="events" class="tab-content">
+        <h2>Мероприятия</h2>
+        <p>Здесь вы можете найти информацию о предстоящих мероприятиях.</p>
+        <ul>
+            <li>Фотосессия - 25 марта 2025</li>
+            <li>Подача заявок на конференцию ТПУ - 15 марта 2025</li>
+            <li>Научная конференция - 3-4 апреля 2025</li>
+            <li>День космонавтики - 12 апреля 2025</li>
+            <li>ВПР по математике - 20 апреля 2025</li>
+        </ul>
+    </div>
+
+    <div id="conferences" class="tab-content">
+        <h2>Конференции</h2>
+        <p>Здесь вы можете найти информацию о предстоящих конференциях.</p>
+        <ul>
+            <li>Международная конференция по искусственному интеллекту - 10 декабря 2024</li>
+            <li>Конференция по современным технологиям в образовании - 15 января 2025</li>
+            <li>Научная конференция по экологии - 5 марта 2025</li>
+        </ul>
+    </div>
+
+    <script>
+        // Функция для переключения вкладок
+        function openTab(event, tabName) {
+            // Скрыть все вкладки
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(tab => tab.classList.remove('active'));
+
+            // Убрать активный класс у всех кнопок
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => button.classList.remove('active'));
+
+            // Показать текущую вкладку
+            document.getElementById(tabName).classList.add('active');
+
+            // Добавить активный класс к текущей кнопке
+            event.currentTarget.classList.add('active');
+
+            // Анимация индикатора
+            const indicator = document.querySelector('.indicator');
+            const buttonWidth = event.currentTarget.offsetWidth;
+            const buttonOffset = event.currentTarget.offsetLeft;
+            indicator.style.width = `${buttonWidth}px`;
+            indicator.style.left = `${buttonOffset}px`;
+        }
+
+        // Инициализация индикатора при загрузке
+        window.addEventListener('load', () => {
+            const firstButton = document.querySelector('.tab-button.active');
+            const indicator = document.querySelector('.indicator');
+            indicator.style.width = `${firstButton.offsetWidth}px`;
+            indicator.style.left = `${firstButton.offsetLeft}px`;
+        });
+
+        // Функция для растяжения мини-приложения на весь экран
+        function expandWebApp() {
+            if (window.Telegram && Telegram.WebApp) {
+                Telegram.WebApp.expand(); // Растягиваем на весь экран
+            }
+        }
+
+        // Вызываем функцию растяжения при загрузке страницы
+        window.addEventListener('load', expandWebApp);
+    </script>
+</body>
+</html>
 }
 
 .tab-buttons {
