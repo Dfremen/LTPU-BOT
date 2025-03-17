@@ -261,6 +261,7 @@
                 // Ограничиваем перемещение только по оси X
                 const newLeft = e.clientX - offsetX;
                 draggableHeader.style.left = `${newLeft}px`;
+                draggableHeader.style.top = '0'; // Фиксируем положение по оси Y
             }
         });
 
