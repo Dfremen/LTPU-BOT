@@ -220,10 +220,28 @@
 
         // Функция для открытия/закрытия полноэкранного режима
         function toggleFullscreen() {
+            const elem = document.documentElement; // Весь документ
+
             if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen(); // Открыть на весь экран
+                if (elem.requestFullscreen) {
+                    elem.requestFullscreen(); // Открыть на весь экран
+                } else if (elem.mozRequestFullScreen) { // Firefox
+                    elem.mozRequestFullScreen();
+                } else if (elem.webkitRequestFullscreen) { // Chrome, Safari, Edge
+                    elem.webkitRequestFullscreen();
+                } else if (elem.msRequestFullscreen) { // IE/Edge
+                    elem.msRequestFullscreen();
+                }
             } else {
-                document.exitFullscreen(); // Выйти из полноэкранного режима
+                if (document.exitFullscreen) {
+                    document.exitFullscreen(); // Выйти из полноэкранного режима
+                } else if (document.mozCancelFullScreen) { // Firefox
+                    document.mozCancelFullScreen();
+                } else if (document.webkitExitFullscreen) { // Chrome, Safari, Edge
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { // IE/Edge
+                    document.msExitFullscreen();
+                }
             }
         }
 
