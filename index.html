@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Times New Roman', sans-serif;
-            background-color: #f5f5f5;
+            background-color: #000000; /* Черный фон */
             margin: 0;
             padding: 0;
             display: flex;
@@ -31,7 +31,7 @@
         .tab-buttons {
             display: flex;
             position: relative;
-            background-color: #28be46; /* Новый цвет плашки */
+            background-color: #28be46; /* Зеленый цвет плашки */
             padding: 10px;
             cursor: grab; /* Курсор для перемещения */
             user-select: none; /* Запрет выделения текста */
@@ -125,42 +125,9 @@
         ul li a:hover {
             color: #2980b9; /* Темно-голубой цвет */
         }
-
-        .fullscreen-button {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            background-color: #2c3e50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            z-index: 1000;
-        }
-
-        .fullscreen-button:hover {
-            background-color: #34495e;
-        }
-
-        .logo {
-            position: fixed;
-            bottom: 10px; /* Логотип внизу страницы */
-            left: 50%;
-            transform: translateX(-50%); /* Центрирование по горизонтали */
-            width: 80px; /* Уменьшенный размер логотипа */
-            z-index: 1000;
-        }
     </style>
 </head>
 <body>
-    <!-- Логотип -->
-    <img src="ТПУ_логотип_rgb-04.jpg" alt="Логотип ТПУ" class="logo">
-
-    <!-- Кнопка для открытия на весь экран -->
-    <button class="fullscreen-button" onclick="toggleFullscreen()">На весь экран</button>
-
     <div class="tabs">
         <div class="tab-buttons" id="draggable-header">
             <button class="tab-button active" onclick="openTab(event, 'olympiads')">Олимпиады</button>
@@ -234,33 +201,6 @@
             indicator.style.width = `${firstButton.offsetWidth}px`;
             indicator.style.left = `${firstButton.offsetLeft}px`;
         });
-
-        // Функция для открытия/закрытия полноэкранного режима
-        function toggleFullscreen() {
-            const elem = document.documentElement; // Весь документ
-
-            if (!document.fullscreenElement) {
-                if (elem.requestFullscreen) {
-                    elem.requestFullscreen(); // Открыть на весь экран
-                } else if (elem.mozRequestFullScreen) { // Firefox
-                    elem.mozRequestFullScreen();
-                } else if (elem.webkitRequestFullscreen) { // Chrome, Safari, Edge
-                    elem.webkitRequestFullscreen();
-                } else if (elem.msRequestFullscreen) { // IE/Edge
-                    elem.msRequestFullscreen();
-                }
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen(); // Выйти из полноэкранного режима
-                } else if (document.mozCancelFullScreen) { // Firefox
-                    document.mozCancelFullScreen();
-                } else if (document.webkitExitFullscreen) { // Chrome, Safari, Edge
-                    document.webkitExitFullscreen();
-                } else if (document.msExitFullscreen) { // IE/Edge
-                    document.msExitFullscreen();
-                }
-            }
-        }
 
         // Функция для перемещения менюшки только вправо и влево
         const draggableHeader = document.getElementById('draggable-header');
