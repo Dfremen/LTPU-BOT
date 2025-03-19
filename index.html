@@ -31,7 +31,7 @@
         .tab-buttons {
             display: flex;
             position: relative;
-            background-color: #f0f0f0; /* Новый цвет панели */
+            background-color: #28be46; /* Новый цвет плашки */
             padding: 10px;
             cursor: grab; /* Курсор для перемещения */
             user-select: none; /* Запрет выделения текста */
@@ -45,7 +45,7 @@
         .tab-button {
             flex: 1;
             background-color: transparent;
-            color: #2c3e50; /* Исходный цвет текста */
+            color: white; /* Белый текст на зеленом фоне */
             border: none;
             padding: 10px 20px; /* Увеличиваем отступы */
             cursor: pointer;
@@ -58,12 +58,12 @@
         }
 
         .tab-button.active {
-            background-color: rgba(0, 0, 0, 0.1); /* Полупрозрачный черный */
+            background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачный белый */
         }
 
         .tab-button:hover {
             transform: translateY(-2px);
-            background-color: rgba(0, 0, 0, 0.2); /* Легкий эффект при наведении */
+            background-color: rgba(255, 255, 255, 0.2); /* Легкий эффект при наведении */
         }
 
         .indicator {
