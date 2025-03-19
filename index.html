@@ -48,7 +48,7 @@
             border: none;
             padding: 10px 20px; /* Увеличиваем отступы */
             cursor: pointer;
-            font-size: 16px;
+            font-size: 14px; /* Уменьшенный размер текста */
             margin: 0 5px;
             border-radius: 5px;
             transition: background-color 0.3s, transform 0.2s;
@@ -97,8 +97,9 @@
         }
 
         h2 {
-            color: #2c3e50; /* Темно-синий цвет */
+            color: #28be46; /* Новый цвет заголовков */
             margin-top: 0;
+            font-size: 24px; /* Размер заголовков */
         }
 
         p {
@@ -141,9 +142,20 @@
         .fullscreen-button:hover {
             background-color: #34495e;
         }
+
+        .logo {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            width: 100px; /* Размер логотипа */
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
+    <!-- Логотип -->
+    <img src="ТПУ_логотип_rgb-04.jpg" alt="Логотип ТПУ" class="logo">
+
     <!-- Кнопка для открытия на весь экран -->
     <button class="fullscreen-button" onclick="toggleFullscreen()">На весь экран</button>
 
