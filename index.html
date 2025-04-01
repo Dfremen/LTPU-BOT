@@ -115,7 +115,17 @@
 <body>
     <div class="tabs">
         <div class="tab-buttons">
-            <button class="tab-button active" onclick="openTab(event, 'conferences')">Конференции</button>
+            <button class="tab-button active" onclick="openTab(event, 'olympiads')">Олимпиады</button>
+            <button class="tab-button" onclick="openTab(event, 'events')">Мероприятия</button>
+            <button class="tab-button" onclick="openTab(event, 'conferences')">Конференции</button>
+        </div>
+        <div id="olympiads" class="tab-content">
+            <h2>Олимпиады</h2>
+            <p>Информация о предстоящих олимпиадах.</p>
+        </div>
+        <div id="events" class="tab-content">
+            <h2>Мероприятия</h2>
+            <p>Информация о предстоящих мероприятиях.</p>
         </div>
         <div id="conferences" class="tab-content active">
             <h2>Конференции</h2>
