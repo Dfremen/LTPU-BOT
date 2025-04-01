@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+https://future4you.ru/index.php?option=com_content&view=article&id=8169&Itemid=4717. Вот документ:<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: 'Times New Roman', sans-serif;
-            background-color: #000000;
+            background-color: #000000; /* Черный фон */
             margin: 0;
             padding: 0;
             display: flex;
@@ -31,39 +31,39 @@
         .tab-buttons {
             display: flex;
             position: relative;
-            background-color: #28be46;
+            background-color: #28be46; /* Зеленый цвет плашки */
             padding: 10px;
-            cursor: grab;
-            user-select: none;
-            overflow-x: auto;
+            cursor: grab; /* Курсор для перемещения */
+            user-select: none; /* Запрет выделения текста */
+            overflow-x: auto; /* Добавляем горизонтальную прокрутку, если кнопки не помещаются */
         }
 
         .tab-buttons:active {
-            cursor: grabbing;
+            cursor: grabbing; /* Курсор при перемещении */
         }
 
         .tab-button {
             flex: 1;
             background-color: transparent;
-            color: white;
+            color: white; /* Белый текст на зеленом фоне */
             border: none;
-            padding: 10px 20px;
+            padding: 10px 20px; /* Увеличиваем отступы */
             cursor: pointer;
-            font-size: 14px;
+            font-size: 14px; /* Уменьшенный размер текста */
             margin: 0 5px;
             border-radius: 5px;
             transition: background-color 0.3s, transform 0.2s;
-            white-space: nowrap;
-            min-width: 100px;
+            white-space: nowrap; /* Запрещаем перенос текста */
+            min-width: 100px; /* Минимальная ширина кнопки */
         }
 
         .tab-button.active {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.1); /* Полупрозрачный белый */
         }
 
         .tab-button:hover {
             transform: translateY(-2px);
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.2); /* Легкий эффект при наведении */
         }
 
         .indicator {
@@ -71,7 +71,7 @@
             bottom: 0;
             left: 0;
             height: 3px;
-            background-color: #e74c3c;
+            background-color: #e74c3c; /* Красный цвет */
             transition: all 0.3s ease;
         }
 
@@ -86,10 +86,25 @@
             display: block;
         }
 
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         h2 {
-            color: #2c3e50;
+            color: #2c3e50; /* Исходный цвет заголовков */
             margin-top: 0;
-            font-size: 24px;
+            font-size: 24px; /* Размер заголовков */
+        }
+
+        p {
+            color: #666; /* Исходный цвет текста */
         }
 
         ul {
@@ -102,39 +117,116 @@
         }
 
         ul li a {
-            color: #3498db;
+            color: #3498db; /* Голубой цвет */
             text-decoration: none;
             transition: color 0.3s;
         }
 
         ul li a:hover {
-            color: #2980b9;
+            color: #2980b9; /* Темно-голубой цвет */
         }
     </style>
 </head>
 <body>
     <div class="tabs">
-        <div class="tab-buttons">
+        <div class="tab-buttons" id="draggable-header">
             <button class="tab-button active" onclick="openTab(event, 'olympiads')">Олимпиады</button>
             <button class="tab-button" onclick="openTab(event, 'events')">Мероприятия</button>
             <button class="tab-button" onclick="openTab(event, 'conferences')">Конференции</button>
+            <div class="indicator"></div> <!-- Индикатор -->
         </div>
-        <div id="olympiads" class="tab-content">
+
+        <div id="olympiads" class="tab-content active">
             <h2>Олимпиады</h2>
-            <p>Информация о предстоящих олимпиадах.</p>
-        </div>
-        <div id="events" class="tab-content">
-            <h2>Мероприятия</h2>
-            <p>Информация о предстоящих мероприятиях.</p>
-        </div>
-        <div id="conferences" class="tab-content active">
-            <h2>Конференции</h2>
+            <p>Здесь вы можете найти информацию о предстоящих олимпиадах.</p>
             <ul>
-                <li><a href="https://future4you.ru/index.php?option=com_content&view=article&id=8169&Itemid=4717" target="_blank">Всероссийская конференция учащихся "Научный потенциал-XXI" — 9-11 апреля 2025 года</a></li>
-                <li><a href="https://future4you.ru/index.php?option=com_content&view=article&id=8169&Itemid=4717" target="_blank">Всероссийская конференция учащихся "Шаги в науку" (1 сессия) — 23-25 апреля 2025 года</a></li>
-                <li><a href="https://future4you.ru/index.php?option=com_content&view=article&id=8169&Itemid=4717" target="_blank">Всероссийская конференция учащихся "Шаги в науку" (2 сессия) — 14-16 мая 2025 года</a></li>
+                <li><a href="https://systematika.org/olimpiada/kenguru/" target="_blank">Конкурс Кенгуру 2025 онлайн</a></li>
+                <li><a href="https://systematika.org/olimpiada/biology" target="_blank">Олимпиада по биологии 2025</a></li>
+                <li><a href="https://systematika.org/olimpiada/math/" target="_blank">Олимпиада по математике 2025</a></li>
             </ul>
         </div>
+
+        <div id="events" class="tab-content">
+            <h2>Мероприятия</h2>
+            <p>Здесь вы можете найти информацию о предстоящих мероприятиях.</p>
+            <ul>
+                <li>Фотосессия - 25 марта 2025</li>
+                <li>Подача заявок на конференцию ТПУ - 15 марта 2025</li>
+                <li>Научная конференция - 3-4 апреля 2025</li>
+                <li>День космонавтики - 12 апреля 2025</li>
+                <li>ВПР по математике - 20 апреля 2025</li>
+            </ul>
+        </div>
+
+        <div id="conferences" class="tab-content">
+    <h2>Конференции</h2>
+    <p>Здесь вы можете найти информацию о предстоящих конференциях.</p>
+    <ul>
+        <li><a href="https://future4you.ru/index.php?option=com_content&view=article&id=8169&Itemid=4717" target="_blank">Всероссийская конференция учащихся "Научный потенциал-XXI" — 9-11 апреля 2025 года</a></li>
+        <li><a href="https://future4you.ru/index.php?option=com_content&view=article&id=8169&Itemid=4717" target="_blank">Всероссийская конференция учащихся "Шаги в науку" (1 сессия) — 23-25 апреля 2025 года</a></li>
+        <li><a href="https://future4you.ru/index.php?option=com_content&view=article&id=8169&Itemid=4717" target="_blank">Всероссийская конференция учащихся "Шаги в науку" (2 сессия) — 14-16 мая 2025 года</a></li>
+    </ul>
+</div>
+
     </div>
+
+    <script>
+        // Функция для переключения вкладок
+        function openTab(event, tabName) {
+            // Скрыть все вкладки
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(tab => tab.classList.remove('active'));
+
+            // Убрать активный класс у всех кнопок
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => button.classList.remove('active'));
+
+            // Показать текущую вкладку
+            document.getElementById(tabName).classList.add('active');
+
+            // Добавить активный класс к текущей кнопке
+            event.currentTarget.classList.add('active');
+
+            // Анимация индикатора
+            const indicator = document.querySelector('.indicator');
+            const buttonWidth = event.currentTarget.offsetWidth;
+            const buttonOffset = event.currentTarget.offsetLeft;
+            indicator.style.width = ${buttonWidth}px;
+            indicator.style.left = ${buttonOffset}px;
+        }
+
+        // Инициализация индикатора при загрузке
+        window.addEventListener('load', () => {
+            const firstButton = document.querySelector('.tab-button.active');
+            const indicator = document.querySelector('.indicator');
+            indicator.style.width = ${firstButton.offsetWidth}px;
+            indicator.style.left = ${firstButton.offsetLeft}px;
+        });
+
+        // Функция для перемещения менюшки только вправо и влево
+        const draggableHeader = document.getElementById('draggable-header');
+        let isDragging = false;
+        let offsetX;
+
+        draggableHeader.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            offsetX = e.clientX - draggableHeader.getBoundingClientRect().left;
+            draggableHeader.style.cursor = 'grabbing';
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                // Ограничиваем перемещение только по оси X
+                const newLeft = e.clientX - offsetX;
+                draggableHeader.style.left = ${newLeft}px;
+                draggableHeader.style.top = '0'; // Фиксируем положение по оси Y
+            }
+        });
+
+        window.addEventListener('mouseup', () => {
+            isDragging = false;
+            draggableHeader.style.cursor = 'grab';
+        });
+    </script>
 </body>
 </html>
